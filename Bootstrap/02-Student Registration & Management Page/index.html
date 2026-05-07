@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <title>Student Registration & Management Page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS v5.3.8 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- navbar -->
+      <div class="navbar-container position-fixed w-100 top-0 z-1 shadow">
+        <nav class="navbar navbar-expand-lg bg-white">
+          <div class="container-fluid">
+            <div>
+              <span class="d-none d-lg-inline-block my-auto text-primary">
+                <i class="bi bi-list p-2 me-2 fs-1 fw-bold"></i>
+              </span>
+
+              <button
+                class="navbar-toggler ms-2 text-primary border-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarText"
+                aria-controls="navbarText"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <!-- <span class="navbar-toggler-icon"></span> -->
+
+                <i class="bi bi-list fs-1 fw-bold"></i>
+              </button>
+              <a class="navbar-brand text-primary fw-bolder fs-1" href="#"
+                >Academic Authority
+              </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul
+                class="navbar-nav me-5 ms-0 ms-md-auto ps-1 mb-2 mb-lg-0 w-75 justify-content-end fs-5"
+              >
+                <li class="nav-item mx-3">
+                  <a
+                    class="nav-link active border-bottom border-3 border-primary text-primary fw-bold"
+                    aria-current="page"
+                    href="#"
+                    >Dashboard</a
+                  >
+                </li>
+                <li class="nav-item mx-3">
+                  <a class="nav-link" href="#">Catalog</a>
+                </li>
+                <li class="nav-item mx-3">
+                  <a class="nav-link" href="#">Settings</a>
+                </li>
+                <li class="nav-item mx-3">
+                  <a class="nav-link" href="#">Help</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HTML Code for Toaster -->
+    <!-- Toaster for delete -->
+    <div class="toaster-html">
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div
+          id="liveToast"
+          class="toast bg-danger text-white fs-5"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <img src="./Image/student01.png" class="rounded me-2" alt="..." />
+            <strong class="me-auto">Delete Action</strong>
+            <small>2 sec ago</small>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">Ethan Caldwell Records Deleted!!</div>
+        </div>
+      </div>
+    </div>
+    <!-- Toaster for Export btn -->
+    <div class="toaster-html">
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div
+          id="export-toaster"
+          class="toast bg-success text-white fs-5"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <img src="./Image/student01.png" class="rounded me-2" alt="..." />
+            <strong class="me-auto">Export Action</strong>
+            <small>2 sec ago</small>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">Records downloading started !!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+    role="alert"
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog model-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h1 class="modal-title"></h1> -->
+            <br />
+            <h1 class="fs-6 fw-bold modal-title" id="staticBackdropLabel">
+              <i class="bi bi-exclamation-triangle fs-6 text-warning"></i>
+              Confirm Expulsion?
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              You are about to remove
+              <span class="fw-bolder">Ethan Caldwell</span> from the Academic
+              Curator Student Ledger. This action is permanent and will revoke
+              all access keys.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger fw-bolder delete-btn"
+              data-bs-dismiss="modal"
+              id="liveToastBtn"
+            >
+              Yes, Remove Record
+            </button>
+            <button
+              type="button"
+              class="btn btn-success fw-bolder"
+              data-bs-dismiss="modal"
+            >
+              Keep Record
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <!-- registration  -->
+      <div class="container register mt-5 py-5 mb-5">
+        <div class="row p-md-0 px-2 mt-5">
+          <!-- side banner -->
+          <div
+            class="col-12 col-lg-3 bg-myBlue text-white d-flex align-items-center rounded-4 mb-md-0 mb-5 shadow"
+          >
+            <div class="side-banner d-flex flex-column gap-2 p-2">
+              <p class="text-uppercase text-myWhite fw-bolder">
+                Enrolling Excellence
+              </p>
+              <h1 class="fw-bolder">Add New Curator Alumni</h1>
+              <p class="text-justify lh-lg text-myWhite">
+                Maintain the integrity of the student ledger. Ensure all
+                biographical data matches official university documentation.
+              </p>
+            </div>
+          </div>
+
+          <!--registration form -->
+
+          <div class="col-12 col-lg-9">
+            <div class="p-3 rounded-4 card shadow">
+              <form class="row g-4">
+                <!-- full name -->
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control bg-secondary-subtle"
+                    id="inputName"
+                    placeholder="enter name"
+                  />
+                </div>
+                <!-- Email -->
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control bg-secondary-subtle"
+                    id="inputEmail"
+                    placeholder="enter email"
+                  />
+                </div>
+
+                <!-- Mobile -->
+                <div class="col-12 col-lg-6">
+                  <label class="form-label" for="autoSizingInputGroup"
+                    >Phone Number</label
+                  >
+                  <div class="input-group">
+                    <div class="input-group-text bg-secondary-subtle">+91</div>
+                    <input
+                      type="text"
+                      class="form-control bg-secondary-subtle"
+                      id="autoSizingInputGroup"
+                      placeholder="0000000000"
+                    />
+                  </div>
+                </div>
+
+                <!-- Course -->
+                <div class="col-12 col-lg-6">
+                  <label for="inputCourse" class="form-label">Course</label>
+                  <select
+                    id="inputCourse"
+                    class="form-select w-100 bg-secondary-subtle"
+                  >
+                    <option selected>Choose...</option>
+                    <option>BE</option>
+                    <option>FE</option>
+                    <option>Clod</option>
+                    <option>DEVOPS</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <!-- gender -->
+                <div class="col-12 col-lg-6">
+                  <label for="inputAddress" class="form-label">Gender</label
+                  ><br />
+                  <input
+                    type="radio"
+                    name="gender"
+                    class="mx-2 bg-secondary-subtle"
+                  />
+                  Male
+                  <input
+                    type="radio"
+                    name="gender"
+                    class="mx-2 bg-secondary-subtle"
+                  />
+                  Female
+                  <input
+                    type="radio"
+                    name="gender"
+                    class="mx-2 bg-secondary-subtle"
+                  />
+                  Other
+                </div>
+                <!-- Address -->
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Address</label>
+                  <textarea
+                    class="form-control bg-secondary-subtle"
+                    id="inputAddress"
+                    placeholder="1234 Main St"
+                  ></textarea>
+                </div>
+
+                <!-- city -->
+                <div class="col-12 col-lg-6">
+                  <label for="inputCity" class="form-label">City</label>
+                  <input
+                    type="text"
+                    class="form-control bg-secondary-subtle"
+                    id="inputCity"
+                  />
+                </div>
+                <!-- state -->
+                <div class="col-12 col-lg-4">
+                  <label for="inputState" class="form-label">State</label>
+                  <select
+                    id="inputState"
+                    class="form-select bg-secondary-subtle"
+                  >
+                    <option selected>Choose...</option>
+                    <option>Maharashtra</option>
+                    <option>Goa</option>
+                    <option>Bihar</option>
+                    <option>Gujarat</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <!-- zip -->
+                <div class="col-12 col-lg-2">
+                  <label for="inputZip" class="form-label">Zip</label>
+                  <input
+                    type="text"
+                    class="form-control bg-secondary-subtle"
+                    id="inputZip"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input bg-secondary-subtle"
+                      type="checkbox"
+                      id="gridCheck"
+                    />
+                    <label class="form-check-label" for="gridCheck">
+                      Remember Me
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 d-flex gap-3 justify-content-center">
+                  <button
+                    type="submit"
+                    class="btn btn-outline-primary px-5 py-2"
+                  >
+                    Enroll Student
+                  </button>
+
+                  <button
+                    type="submit"
+                    class="btn btn-outline-danger px-5 py-2"
+                  >
+                    Clear Form
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center mt-4 mb-3">
+          <div class="flex-grow-1 border-top border-secondary"></div>
+          <span class="mx-3">or</span>
+          <div class="flex-grow-1 border-top border-secondary"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-md-auto d-inline-block text-center mx-auto">
+            <button
+              class="fs-3 fw-bolder rounded-5 px-4 py-1 btn btn-outline-dark"
+            >
+              <svg
+                width="50px"
+                height="50px"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M30.0014 16.3109C30.0014 15.1598 29.9061 14.3198 29.6998 13.4487H16.2871V18.6442H24.1601C24.0014 19.9354 23.1442 21.8798 21.2394 23.1864L21.2127 23.3604L25.4536 26.58L25.7474 26.6087C28.4458 24.1665 30.0014 20.5731 30.0014 16.3109Z"
+                  fill="#4285F4"
+                />
+                <path
+                  d="M16.2863 29.9998C20.1434 29.9998 23.3814 28.7553 25.7466 26.6086L21.2386 23.1863C20.0323 24.0108 18.4132 24.5863 16.2863 24.5863C12.5086 24.5863 9.30225 22.1441 8.15929 18.7686L7.99176 18.7825L3.58208 22.127L3.52441 22.2841C5.87359 26.8574 10.699 29.9998 16.2863 29.9998Z"
+                  fill="#34A853"
+                />
+                <path
+                  d="M8.15964 18.769C7.85806 17.8979 7.68352 16.9645 7.68352 16.0001C7.68352 15.0356 7.85806 14.1023 8.14377 13.2312L8.13578 13.0456L3.67083 9.64746L3.52475 9.71556C2.55654 11.6134 2.00098 13.7445 2.00098 16.0001C2.00098 18.2556 2.55654 20.3867 3.52475 22.2845L8.15964 18.769Z"
+                  fill="#FBBC05"
+                />
+                <path
+                  d="M16.2864 7.4133C18.9689 7.4133 20.7784 8.54885 21.8102 9.4978L25.8419 5.64C23.3658 3.38445 20.1435 2 16.2864 2C10.699 2 5.8736 5.1422 3.52441 9.71549L8.14345 13.2311C9.30229 9.85555 12.5086 7.4133 16.2864 7.4133Z"
+                  fill="#EB4335"
+                />
+              </svg>
+              Sign in with Google
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- showing students records -->
+      <div class="student-record">
+        <div class="student-record-navbar">
+          <nav class="navbar bg-body-tertiary">
+            <div class="container">
+              <div class="navbar-brand">
+                <h2 class="">Students Enrollment Records</h2>
+                <p class="text-secondary">
+                  Total active enrollments: 1,248 students
+                </p>
+              </div>
+
+              <form class="d-flex gap-3" role="search">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="filter by name"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-primary w-100" type="submit">
+                  <i class="bi bi-search me-2"></i> Search
+                </button>
+                <button
+                  class="btn btn-outline-danger w-100 text-justify"
+                  type="submit"
+                  id="export-btn"
+                >
+                  <i class="bi bi-download me-2"></i> Export
+                </button>
+              </form>
+            </div>
+          </nav>
+        </div>
+
+        <!-- rendering records  -->
+        <div class="student-record-list container p-5 table-responsive">
+          <!-- table => render list of students -->
+          <table class="table table-hover align-middle">
+            <thead>
+              <tr>
+                <th scope="col">STUDENT</th>
+                <th scope="col">ACADEMIC PATH</th>
+                <th scope="col">ENROLLMENT STATUS</th>
+                <th scope="col">ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 1st row -->
+              <tr>
+                <td>
+                  <div class="student d-flex align-items-center">
+                    <div class="me-2">
+                      <img src="./Image/student01.png" alt="" />
+                    </div>
+                    <p class="my-auto">
+                      <span>Ethan Caldwell</span> <br />
+                      <span class="text-secondary">e.caldwell@curator.edu</span>
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-secondary fs-5 text-justify">
+                    Computer Science <br />
+                    <span class="text-primary fs-6 fst-italic"
+                      >Master's Program</span
+                    >
+                  </p>
+                </td>
+                <td>
+                  <h6
+                    class="bg-primary-subtle d-inline-block px-3 py-1 rounded-5"
+                  >
+                    ACTIVE
+                  </h6>
+                </td>
+                <td>
+                  <div class="btn-container d-flex gap-3">
+                    <!-- Edit  -->
+                    <button class="btn btn-outline-primary fs-4">
+                      <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <!-- Delete Button trigger modal -->
+                    <button
+                      class="btn btn-outline-danger fs-4"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 2nd row -->
+              <tr>
+                <td>
+                  <div class="student d-flex align-items-center">
+                    <div class="me-2">
+                      <img src="./Image/student02.png" alt="" />
+                    </div>
+                    <p class="my-auto">
+                      <span> Sophia Vance</span> <br />
+                      <span class="text-secondary">s.vance@curator.edu</span>
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-secondary fs-5 text-justify">
+                    Editorial Design<br />
+                    <span class="text-primary fs-6 fst-italic"
+                      >Certificate Program</span
+                    >
+                  </p>
+                </td>
+                <td>
+                  <h6
+                    class="bg-danger-subtle d-inline-block px-3 py-1 rounded-5"
+                  >
+                    PENDING REVIEW
+                  </h6>
+                </td>
+                <td>
+                  <div class="btn-container d-flex gap-3">
+                    <!-- Edit  -->
+                    <button class="btn btn-outline-primary fs-4">
+                      <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <!-- Delete -->
+                    <button class="btn btn-outline-danger fs-4">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 3rd row -->
+              <tr>
+                <td>
+                  <div class="student d-flex align-items-center">
+                    <div class="me-2">
+                      <img src="./Image/student03.png" alt="" />
+                    </div>
+                    <p class="my-auto">
+                      <span>Marcus Thorne</span> <br />
+                      <span class="text-secondary">m.thorne@curator.edu</span>
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-secondary fs-5 text-justify">
+                    Systems Architecture
+                    <br />
+                    <span class="text-primary fs-6 fst-italic">PhD Track </span>
+                  </p>
+                </td>
+                <td>
+                  <h6
+                    class="bg-primary-subtle d-inline-block px-3 py-1 rounded-5"
+                  >
+                    ACTIVE
+                  </h6>
+                </td>
+                <td>
+                  <div class="btn-container d-flex gap-3">
+                    <!-- Edit  -->
+                    <button class="btn btn-outline-primary fs-4">
+                      <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <!-- Delete -->
+                    <button class="btn btn-outline-danger fs-4">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 4rd row -->
+              <tr>
+                <td>
+                  <div class="student d-flex align-items-center">
+                    <div class="me-2">
+                      <img src="./Image/student04.png" alt="" />
+                    </div>
+                    <p class="my-auto">
+                      <span>Amara Okafor</span> <br />
+                      <span class="text-secondary">a.okafor@curator.edu </span>
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-secondary fs-5 text-justify">
+                    Systems Architecture
+                    <br />
+                    <span class="text-primary fs-6 fst-italic"
+                      >Certificate Program</span
+                    >
+                  </p>
+                </td>
+                <td>
+                  <h6
+                    class="bg-primary-subtle d-inline-block px-3 py-1 rounded-5"
+                  >
+                    ACTIVE
+                  </h6>
+                </td>
+                <td>
+                  <div class="btn-container d-flex gap-3">
+                    <!-- Edit  -->
+                    <button class="btn btn-outline-primary fs-4">
+                      <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <!-- Delete -->
+                    <button class="btn btn-outline-danger fs-4">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 6th row -->
+              <tr>
+                <td>
+                  <div class="student d-flex align-items-center">
+                    <div class="me-2">
+                      <img src="./Image/student06.png" alt="" />
+                    </div>
+                    <p class="my-auto">
+                      <span> Lucas Muller </span> <br />
+                      <span class="text-secondary">l.muller@curator.edu</span>
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <p class="text-secondary fs-5 text-justify">
+                    Systems Architecture
+                    <br />
+                    <span class="text-primary fs-6 fst-italic">PhD Track </span>
+                  </p>
+                </td>
+                <td>
+                  <h6
+                    class="bg-primary-subtle d-inline-block px-3 py-1 rounded-5"
+                  >
+                    ACTIVE
+                  </h6>
+                </td>
+                <td>
+                  <div class="btn-container d-flex gap-3">
+                    <!-- Edit  -->
+                    <button class="btn btn-outline-primary fs-4">
+                      <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <!-- Delete -->
+                    <button class="btn btn-outline-danger fs-4">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- pagination -->
+          <div
+            class="pagination d-flex justify-content-between align-items-center mt-5"
+          >
+            <div class="page-number text-secondary me-4 me-lg-0">
+              PAGE 1 OF 42
+            </div>
+            <div class="pagination-link">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

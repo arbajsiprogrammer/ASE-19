@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <title>Bootstrap Learning</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS v5.3.8 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+ 
+
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+
+  <body>
+    <!-- Container -->
+    <div class="container-fluid px-0">
+      
+      <!-- navbar -->
+      <div class="navbar-container position-sticky top-0 z-1">
+        <nav class="navbar navbar-expand-lg bg-white  ">
+        <div class="container-fluid">
+          <div>
+            <span class="d-none d-lg-inline-block my-auto text-primary">
+              <i class="bi bi-list p-2 me-2 fs-1 fw-bold"></i>
+            </span>
+
+            <button
+              class="navbar-toggler ms-2 text-primary border-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarText"
+              aria-controls="navbarText"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <!-- <span class="navbar-toggler-icon"></span> -->
+
+              <i class="bi bi-list fs-1 fw-bold"></i>
+            </button>
+            <a class="navbar-brand text-primary fw-bolder fs-1" href="#"
+              >Academic Authority
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul
+              class="navbar-nav me-auto ps-1 mb-2 mb-lg-0 w-75 justify-content-center fs-5"
+            >
+              <li class="nav-item mx-3">
+                <a
+                  class="nav-link active border-bottom border-3 border-primary text-primary fw-bold"
+                  aria-current="page"
+                  href="#"
+                  >Dashboard</a
+                >
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link" href="#">Catalog</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link" href="#">Settings</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link" href="#">Help</a>
+              </li>
+            </ul>
+          </div>
+          <div class="me-3 d-none  d-lg-inline-block">
+            <img src="./Image/logo-01.png" class="img-fluid rounded-3  " alt="" />
+          </div>
+        </div>
+      </nav>
+      </div>
+
+      <!-- hero -->
+      <div class="container mb-5">
+        <div class="row hero justify-content-between p-2">
+          <div
+            class="col-lg-6 align-content-center mt-2"
+          >
+            <h1 class="">
+              Editorial-First
+              <span class="text-primary">Learning</span> Ecosystem.
+            </h1>
+
+            <p class="fs-5 text-secondary">
+              Experience a digital ledger designed for focus. We remove the
+              noise so you can master the content with an authoritative
+              pedagogical approach.
+            </p>
+
+            <div class="btn-container">
+              <button class="btn btn-primary text-white fs-4 px-3 py-2 ">
+                Begin Your Journey
+                <i class="bi bi-arrow-right fs-4 fw-bolder"></i>
+              </button>
+              <button class="btn btn-outline-primary text-primary fs-4 px-3 py-2 ">
+                View Curriculum
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-5 mt-5 dark rounded-5 overflow-hidden">
+            <img
+              src="./Image/hero-section-img.png"
+              class="text-end rounded-5 img-fluid"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- main content -->
+
+      <div class="container-fluid bg-primary-subtle my-5 pb-5">
+        <div class="container main  pb-5">
+            <h1 class="d-inline-block border-bottom border-2 border-primary my-5">Curated Excellence </h1>
+
+            <div class="row d-flex justify-content-center">
+              <div class="col-12 col-lg-4 mb-3">
+              <div class="card p-4 ">
+              <div class="icon"><i class="bi bi-book-half fs-1 text-primary "></i></div>
+              <h3 class="my-4 ">Deep Focus Materials</h3>
+              <p class="">Structured long-form content designed to minimize cognitive load and maximize retention through intentional white space.</p>
+          
+              </div>
+            </div>
+
+          <div class="col-12 col-lg-4 mb-3">
+            <div class="card p-4">
+            <div class="icon"><i class="bi bi-book-half fs-1 text-primary "></i></div>
+            <h3 class="my-4">Deep Focus Materials</h3>
+            <p class="">Structured long-form content designed to minimize cognitive load and maximize retention through intentional white space.</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4 mb-3">
+            <div class="card p-4">
+            <div class="icon"><i class="bi bi-book-half fs-1 text-primary "></i></div>
+            <h3 class="my-4">Deep Focus Materials</h3>
+            <p class="" >Structured long-form content designed to minimize cognitive load and maximize retention through intentional white space.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+
+      <!-- banner section -->
+        <div class="container my-5 px-5">
+          <div class="row justify-content-between my-5">
+            <!-- left side img -->
+            <div class="col-12 col-lg-5 position-relative" >
+              
+              <img src="./Image/mentor01.jpg" class="w-100 h-100 rounded-3 shadow-lg" alt="no img">
+              <!-- <img src="./Image/banner-img-01.png" class="img-fluid" alt=""> -->
+              <!-- overlapping text container -->
+               <div class="overlap-text-container bg-primary d-none d-lg-inline-block text-white py-3 px-2 rounded-3 align-items-center">
+                <h1 class="fw-bolder ">15+</h1>
+                <h4 class="">YEARS EXPERIENCE</h4>
+               </div>
+            </div>
+            <!-- right side text content -->
+            <div class="col-12 col-lg-6">
+              <div class="mentor-description my-5">
+                  <span class="text-primary fs-5 fw-bolder d-block mb-2">OUR PHILOSOPHY
+                  </span>
+                  <h1 class="">Bridging the gap between theory and authority.</h1>
+
+                  <p class="lh-lg text-secondary my-3">We believe that learning shouldn't feel like a transaction. It should feel like an apprenticeship. The Academic Authority was founded to restore the dignity of deep study in a world of fragmented attention.</p>
+
+                  <p class="lh-lg text-secondary my-3">Our platform is more than a learning management system—it is a digital sanctuary for the intellectual curator. We focus on the "why" as much as the "how," providing the context necessary for true mastery.</p>
+
+                  <h3 class="mt-5 text-primary fw-bolder">Learn more about our methodology <i class="bi bi-arrow-right fs-4 fw-bolder"></i></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Join us card  -->
+
+        <div class="container my-5 py-5">
+          <div class="card mx-auto text-center d-flex flex-column gap-2 bg-primary text-white py-5 px-1 rounded-5">
+            
+            <h1 class="mt-5 fw-bolder">Ready to elevate your expertise?</h1>
+            
+            <p class="text-center mx-auto text-white ">Join over 50,000 scholars who have refined their skills through our curated academic pathways.</p>
+
+            <button class="btn bg-body text-primary mx-auto mb-5 py-3 rounded-3 fs-5 fw-bold join-us-btn">Create Professional Account</button>
+          </div>
+        </div>  
+
+        <hr class="border border-1 border-secondary mt-5 ">
+        <!-- footer -->
+         <div class="container-fluid px-5 ">
+          <div class="row justify-content-between">
+            <div class="col-6 col-lg-3">
+              <div class="address">
+                <h1 class="text-primary">Academic Authority</h1>
+                <p class="text-secondary">© 2024 The Academic Authority. Editorial-First Learning. Defined by precision, driven by focus.</p>
+              </div>
+            </div>
+            <div class="col-6 col-lg-6 align-items-center">
+              <div class="list">
+                <ul class="list-unstyled d-flex flex-column flex-lg-row gap-3 gap-lg-5   justify-content-end fs-4 text-secondary ">
+                  <li>Privacy Policy</li>
+                  <li>Terms of Service</li>
+                  <li>Cookie Settings</li>
+                  <li><i class="fa-solid fa-globe"></i></li>
+                  <li><i class="fa-solid fa-share-nodes"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+         </div>
+
+    </div>
+    <!-- script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
