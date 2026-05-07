@@ -1,0 +1,23 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.col-wrapper{
+    margin: 20px;
+    padding: 20px;
+    column-count: 3;
+    /* width: 1000px; */
+    column-width: 100px;
+    column-height: 100px;
+    text-align: justify;
+    /* column-fill: balance; */
+    column-gap: 2%;
+    column-rule: 2px solid red;
+}
+
+h1{ 
+    column-span: all;
+    margin: 20px;
+}

@@ -1,0 +1,94 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+fieldset{
+    max-width: 70%;
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+.personal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 1rem;
+    /* border: 2px solid red; */
+}
+
+.personal-item{
+    
+    width: 40%;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    margin: auto;
+}
+
+.label{
+    text-align: start;
+}
+
+.personal-item-right{
+    /* border: 2px solid red; */
+    margin-left: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media (max-width:760px) {
+    .personal-item{
+    
+    width: 100%;
+    border: 2px solid green;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    padding: 1rem;
+    margin: auto;
+}
+}
+
+/* qualification details table styling start here */
+
+table{
+    table-layout: fixed;
+    text-align: center;
+    border-spacing: 5px;
+    width: 100%;
+}
+.qualification-details,.language-Knowledge{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.qualification-details-table,.language-Knowledge-table{
+   width: 80%;
+   margin: auto;
+}
+.language-Knowledge-table{
+    margin-bottom: 20px;
+    
+}
+td, th{
+    word-break: break-word;
+}
+
+table input{
+    width: 100%;
+}
+
+
+/* qualification details table styling end here */

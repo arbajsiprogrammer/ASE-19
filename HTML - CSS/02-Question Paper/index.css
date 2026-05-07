@@ -1,0 +1,32 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+
+}
+
+.container{
+    margin:2% 10%;
+}
+
+.headers{
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+.list {
+    margin: 1%;   
+}
+
+.question{
+    margin-top: 1%;
+
+}
+
+.footer{
+    text-align: center;
+}
+
+span{
+    text-decoration: line-through;
+}

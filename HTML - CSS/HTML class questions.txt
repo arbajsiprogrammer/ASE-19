@@ -1,0 +1,18 @@
+lang = 'en'
+
+how multi lang support works using <html lang = 'en'> </html>
+
+why head is used 
+
+HTML 4 & 5 diff 
+
+tag , properties , attribute
+
+find engines of diffrent browsers and their working (basic will be ok)
+
+
+
+
+
+
+
