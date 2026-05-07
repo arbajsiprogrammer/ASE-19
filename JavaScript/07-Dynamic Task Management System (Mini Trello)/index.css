@@ -1,0 +1,43 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+
+#navbar-img, .card-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar{
+    position: sticky;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+}
+
+.circular-border{
+    border-radius: 50%;
+}
+
+#filter-card{
+    z-index: 2;
+    position: fixed;
+    top: 25%;
+    right: 15%;
+}
+ .card-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.ele_create_model_btn:active{
+    color: blue;
+    border: 1px solid blue;
+    background-color: white;
+}

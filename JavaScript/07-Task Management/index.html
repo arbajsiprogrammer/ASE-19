@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>MyStack</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div style="display: flex; align-items: center; flex-shrink: 0">
+            <img src="./Image/student01.png" id="navbar-img" alt="" />
+            <a class="navbar-brand">MyStack</a>
+          </div>
+          <!-- <div style="flex-shrink: 0"> -->
+          
+          <div class="d-flex gap-2 gap-lg-5 flex-wrap " >
+            
+            <div class="d-flex gap-2 ">
+              <input
+              class="form-control"
+              type="text"
+              placeholder="Search tasks…"
+              id="search-ip"
+            />
+            <button id="search-btn" type="button">Search</button>
+            </div>
+
+            <div class="mb-lg-0 mb-1">
+            <button
+              type="button"
+              class="btn btn-primary "
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <i class="bi bi-plus-lg"></i> Create Task
+            </button>
+          </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="exampleModalLabel">Create New Task</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form id="form">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="form-task-title" class="col-form-label"
+                  >Task Title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="form-task-title"
+                  placeholder="e.g. Design system audit"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="form-description" class="col-form-label"
+                  >Description</label
+                >
+                <textarea
+                  class="form-control"
+                  id="form-description"
+                  placeholder="Briefly describe the task scope…"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label class="col-form-label">Priority</label>
+                <div class="modal-btn-group" id="priority">
+                  <button type="button" class="create-modal-btn" name="low">
+                    Low
+                  </button>
+                  <button type="button" class="create-modal-btn" name="medium">
+                    Medium
+                  </button>
+                  <button type="button" class="create-modal-btn" name="high">
+                    High
+                  </button>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="form-due-date" class="col-form-label"
+                  >Due Date</label
+                >
+                <input type="date" class="form-control" id="form-due-date" />
+              </div>
+
+              <div class="mb-3">
+                <label class="col-form-label">Status</label>
+                <div class="modal-btn-group" id="status">
+                  <button type="button" class="status-btn" name="todo">
+                    To Do
+                  </button>
+                  <button type="button" class="status-btn" name="inProgress">
+                    In Progress
+                  </button>
+                  <button type="button" class="status-btn" name="complete">
+                    Complete
+                  </button>
+                </div>
+              </div>
+
+              <div class="mb-1">
+                <label for="form-all-members" class="col-form-label"
+                  >Assign To</label
+                >
+                <select id="form-all-members">
+                  <option value="All Team Members" selected>
+                    All Team Members
+                  </option>
+                  <option value="lakhan">Lakhan</option>
+                  <option value="vishnu">Vishnu</option>
+                  <option value="pankaj">Pankaj</option>
+                  <option value="ajinkya">Ajinkya</option>
+                  <option value="sanket">Sanket</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="reset" class="btn btn-secondary">Reset</button>
+              <button type="submit" class="btn btn-primary">Add Task</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <main>
+      <div class="container-fluid px-4 px-md-5">
+        <div class="dashboard-header">
+          <div>
+            <h1>Task Board</h1>
+            <p>Manage your team workflow and project milestones.</p>
+          </div>
+          <div class="dashboard-actions">
+            <button class="btn-filter" id="filter-button">
+              <i class="bi bi-funnel"></i> Filter
+            </button>
+            <button class="btn-filter" id="sort-button">
+              <i class="bi bi-arrow-down-up"></i> Sort
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter card -->
+        <div id="filter-card">
+          <div class="filter-panel-header">Filter Tasks</div>
+          <div class="filter-section">
+            <div class="filter-section-title">Priority</div>
+            <label class="filter-option"
+              ><input type="checkbox" id="priority-high" /> High</label
+            >
+            <label class="filter-option"
+              ><input type="checkbox" id="priority-Medium" /> Medium</label
+            >
+            <label class="filter-option"
+              ><input type="checkbox" id="priority-low" /> Low</label
+            >
+          </div>
+          <div class="filter-section">
+            <div class="filter-section-title">Due Date</div>
+            <label class="filter-option"
+              ><input
+                type="radio"
+                name="due-date-filter"
+                id="filter-due-today"
+              />
+              Today</label
+            >
+            <label class="filter-option"
+              ><input type="radio" name="due-date-filter" id="filter-due-7d" />
+              Next 7 Days</label
+            >
+            <label class="filter-option"
+              ><input
+                type="radio"
+                name="due-date-filter"
+                id="filter-due-overdue"
+              />
+              Overdue</label
+            >
+          </div>
+          <div class="filter-section">
+            <div class="filter-section-title">Member</div>
+            <select id="filter-all-members">
+              <option value="All Team Members" selected>
+                All Team Members
+              </option>
+              <option value="lakhan">Lakhan</option>
+              <option value="vishnu">Vishnu</option>
+              <option value="pankaj">Pankaj</option>
+              <option value="ajinkya">Ajinkya</option>
+              <option value="sanket">Sanket</option>
+            </select>
+          </div>
+          <div class="filter-actions">
+            <button id="clear-filter-btn">Clear</button>
+            <button id="apply-filter-btn">Apply</button>
+          </div>
+        </div>
+
+        <!-- Kanban board -->
+        <div class="kanban-grid">
+          <div class="kanban-col">
+            <div class="col-header todo-header">
+              <h4>To Do</h4>
+              <span class="col-count cnt">0</span>
+            </div>
+            <div id="todo-card-list"></div>
+          </div>
+          <div class="kanban-col">
+            <div class="col-header progress-header">
+              <h4>In Progress</h4>
+              <span class="col-count cnt">0</span>
+            </div>
+            <div id="inProgress-card-list"></div>
+          </div>
+          <div class="kanban-col">
+            <div class="col-header complete-header">
+              <h4>Completed</h4>
+              <span class="col-count cnt">0</span>
+            </div>
+            <div id="complete-card-list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
