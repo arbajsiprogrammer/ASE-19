@@ -1,0 +1,38 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+table{
+    border: 2px solid black;
+    width: 80%;
+    margin: auto ;
+    text-align: start;
+    border-spacing: 10px;
+}
+td, th{
+    padding: 5px;
+    border: 2px solid black;
+     
+
+}
+
+input,textarea{
+    padding: 0.8rem;  
+}
+
+
+th{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.button-container{
+    text-align: center;
+}

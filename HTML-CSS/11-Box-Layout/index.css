@@ -1,0 +1,22 @@
+.content-box{
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+    margin: 20px;
+    background-color: blueviolet;
+    box-sizing: content-box;
+    
+}
+
+.border-box{
+    box-sizing: border-box;
+     width: 200px;
+    height: 200px;
+    padding: 20px;
+    margin: 20px;
+    background-color: burlywood;
+}
+
+h1{
+    margin: 20px;
+}
